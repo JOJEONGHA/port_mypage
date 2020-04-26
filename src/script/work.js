@@ -93,7 +93,7 @@ $(function () {
 
     // Run when button click
     elm.find(".btn > a").click(function(){
-        var midIndex = jQuery.inArray(50,lefts);
+        let midIndex = jQuery.inArray(50,lefts);
         
         elm.find(".text .title").text(obj.workSet[midIndex].name);
         elm.find(".text .info").text(obj.workSet[midIndex].info);
@@ -102,17 +102,29 @@ $(function () {
     // Work info Button action
     let deta_btn = $(".web_container .contents_web .right > ul > .deta > a"),
         deta_xbtn = $(".container_work .contents .core .pop_cont .pop_wrap a"),
-        deta_cont = $(".container_work .contents .core .pop_cont");
+        deta_cont = $(".container_work .contents .core .pop_cont"),
+        code_btn = $(".web_container .contents_web .right > ul > .btn.code > a"),
+        ori_btn = $(".web_container .contents_web .right > ul > .btn.ori > a");
+    
+    code_btn.click(function(){
+        let midIndex = jQuery.inArray(50,lefts);
+        $(this).attr("href", obj.workSet[midIndex].code_url);
+    })
         
     deta_btn.click(function(){
         let midIndex = jQuery.inArray(50,lefts),
             deta_cons = $(".container_work .contents .core .pop_cont .pop_wrap .pop_cons .pop_core");
         deta_cont.addClass("ac");
-        deta_cons.css("background-image","url('./img/weblist/detail/in_" + midIndex + ".jpg')");
+        deta_cons.attr("src","./img/weblist/detail/in_" + midIndex + ".jpg");
     })
 
     deta_xbtn.click(function(){
         deta_cont.removeClass("ac");
+    })
+
+    ori_btn.click(function(){
+        let midIndex = jQuery.inArray(50,lefts);
+        $(this).attr("href", obj.workSet[midIndex].ori_url);
     })
 
     // Run when scrolling
