@@ -104,8 +104,14 @@ $(function () {
         deta_xbtn = $(".container_work .contents .core .pop_cont .pop_wrap a"),
         deta_cont = $(".container_work .contents .core .pop_cont"),
         code_btn = $(".web_container .contents_web .right > ul > .btn.code > a"),
-        ori_btn = $(".web_container .contents_web .right > ul > .btn.ori > a");
+        ori_btn = $(".web_container .contents_web .right > ul > .btn.ori > a"),
+        view_btn = $(".web_container .contents_web .right > ul > .btn.view > a");
     
+    view_btn.click(function(){
+        let midIndex = jQuery.inArray(50,lefts);
+        $(this).attr("href", "./work/work_" + midIndex + "/index.html");
+    })
+
     code_btn.click(function(){
         let midIndex = jQuery.inArray(50,lefts);
         $(this).attr("href", obj.workSet[midIndex].code_url);
