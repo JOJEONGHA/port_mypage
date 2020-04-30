@@ -45,8 +45,10 @@ $(function () {
     webR.addClass("lr");
 
     // Init - text
-    elm.find(".text .title").text(obj.workSet[0].name);
-    elm.find(".text .info").text(obj.workSet[0].info);
+    elm.find(".text .title > span").text(obj.workSet[0].name);
+    elm.find(".text .info > span").text(obj.workSet[0].info);
+    elm.find(".text .title > span.hd").text(obj.workSet[1].name);
+    elm.find(".text .info > span.hd").text(obj.workSet[1].info);
     // (Working) web container text initialize
 
     // Weblist text connect
@@ -84,19 +86,39 @@ $(function () {
         platformTag += "</span>";
         platformSet.append(platformTag);
     })
-    
+
     // Arrow button click action
     var btnL = elm.find(".btn .btn_left"),
         btnR = elm.find(".btn .btn_right");
-    btnL.click(function(){aClick("L",mid,step,weblist,lefts,elm);});
-    btnR.click(function(){aClick("R",mid,step,weblist,lefts,elm);});
+    btnL.click(function () { 
+        aClick("L", mid, step, weblist, lefts, elm); 
 
+        // hide ac change
+        elm.find(".text .base > span.hd").removeClass("rhd");
+        elm.find(".text .base > span.ac").removeClass("rac");
+        elm.find(".text .base > span.hd").addClass("lac").removeClass("lhd");
+        elm.find(".text .base > span.ac").addClass("lhd").removeClass("lac");
+
+        hd_ac_cont(elm.find(".text .base > span"));
+    });
+    btnR.click(function () { 
+        aClick("R", mid, step, weblist, lefts, elm); 
+
+        // hide ac change
+        elm.find(".text .base > span.hd").removeClass("lhd");
+        elm.find(".text .base > span.ac").removeClass("lac");
+        elm.find(".text .base > span.hd").addClass("rac").removeClass("rhd");
+        elm.find(".text .base > span.ac").addClass("rhd").removeClass("rac");
+
+        hd_ac_cont(elm.find(".text .base > span"));
+    });
+    
     // Run when button click
     elm.find(".btn > a").click(function(){
         let midIndex = jQuery.inArray(50,lefts);
         
-        elm.find(".text .title").text(obj.workSet[midIndex].name);
-        elm.find(".text .info").text(obj.workSet[midIndex].info);
+        elm.find(".text .title > span.hd").text(obj.workSet[midIndex].name);
+        elm.find(".text .info > span.hd").text(obj.workSet[midIndex].info);
     })
 
     // Work info Button action
@@ -146,6 +168,17 @@ $(function () {
     })
 })
 
+function hd_ac_cont(elm){
+    elm.each(function(i,e){
+        if($(e).hasClass("ac")){
+            $(e).addClass("hd").removeClass("ac");
+        }
+        else if($(e).hasClass("hd")){
+            $(e).addClass("ac").removeClass("hd");    
+        }
+    })
+}
+
 // Return body tag height
 function bodyHeight(){
     var bodyHeight= 0;
@@ -184,14 +217,6 @@ function aClick(rl,mid,step,weblist,lefts,elm){
         positionC(weblist,midIndex);    // Give class about position
     }    
 }
-
-// Button active control
-// function btnControl(lefts,direct,mid){
-//     if(lefts[direct] == mid)    
-//         btn.addClass("unactive");
-//     else
-//         btn.removeClass("unactive");
-// }
 
 // Give class about position
 function positionC(weblist,midIndex) {
