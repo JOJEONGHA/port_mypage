@@ -14,6 +14,7 @@ $(function () {
     for(var i = 1; i < obj.workSet.length; i++){
         var web_container = weblist.find(".work .work_container .web_container").html();
         var tag = "<li class='works_"+ i +" work'>";
+            tag += "<div class = 'work_txt_cont'><span class = 'txt_tit'></span><span class = 'txt_info'></span></div>";
             tag += "<div class = 'work_container'>";
             tag += "<figure>";
             tag += "<img src='img/weblist/index_" + i + ".png' alt='index_"+ i +"'></img>";
@@ -45,11 +46,13 @@ $(function () {
     webR.addClass("lr");
 
     // Init - text
-    elm.find(".text .title > span").text(obj.workSet[0].name);
-    elm.find(".text .info > span").text(obj.workSet[0].info);
-    elm.find(".text .title > span.hd").text(obj.workSet[1].name);
-    elm.find(".text .info > span.hd").text(obj.workSet[1].info);
-    // (Working) web container text initialize
+    let txt_cont = $(".weblist .work.mid .work_txt_cont");
+    txt_cont.css("opacity",1);
+    for(var i = 0; i < obj.workSet.length; i++){
+        let txt_tag = $(".works_"+ i +" .work_txt_cont");
+        txt_tag.children(".txt_tit").text(obj.workSet[i].name);
+        txt_tag.children(".txt_info").text(obj.workSet[i].info);
+    }   
 
     // Weblist text connect
     var midIndex = jQuery.inArray(50,lefts);
@@ -90,37 +93,22 @@ $(function () {
     // Arrow button click action
     var btnL = elm.find(".btn .btn_left"),
         btnR = elm.find(".btn .btn_right");
+        
     btnL.click(function () { 
         aClick("L", mid, step, weblist, lefts, elm); 
-
-        // hide ac change
-        elm.find(".text .base > span.hd").removeClass("rhd");
-        elm.find(".text .base > span.ac").removeClass("rac");
-        elm.find(".text .base > span.hd").addClass("lac").removeClass("lhd");
-        elm.find(".text .base > span.ac").addClass("lhd").removeClass("lac");
-
-        hd_ac_cont(elm.find(".text .base > span"));
+        let txt_cont = $(".weblist .work.mid .work_txt_cont"),
+            txt_acont = $(".weblist .work .work_txt_cont");
+        txt_acont.css({"animation":"empty","opacity":0});
+        txt_cont.css({"animation":"left_text 1s","opacity":1});
     });
     btnR.click(function () { 
         aClick("R", mid, step, weblist, lefts, elm); 
-
-        // hide ac change
-        elm.find(".text .base > span.hd").removeClass("lhd");
-        elm.find(".text .base > span.ac").removeClass("lac");
-        elm.find(".text .base > span.hd").addClass("rac").removeClass("rhd");
-        elm.find(".text .base > span.ac").addClass("rhd").removeClass("rac");
-
-        hd_ac_cont(elm.find(".text .base > span"));
+        let txt_cont = $(".weblist .work.mid .work_txt_cont"),
+            txt_acont = $(".weblist .work .work_txt_cont");
+        txt_acont.css({"animation":"empty","opacity":0});
+        txt_cont.css({"animation":"right_text 1s","opacity":1});
     });
     
-    // Run when button click
-    elm.find(".btn > a").click(function(){
-        let midIndex = jQuery.inArray(50,lefts);
-        
-        elm.find(".text .title > span.hd").text(obj.workSet[midIndex].name);
-        elm.find(".text .info > span.hd").text(obj.workSet[midIndex].info);
-    })
-
     // Work info Button action
     let deta_btn = $(".web_container .contents_web .right > ul > .deta > a"),
         deta_xbtn = $(".container_work .contents .core .pop_cont .pop_wrap a"),
@@ -167,17 +155,6 @@ $(function () {
         }
     })
 })
-
-function hd_ac_cont(elm){
-    elm.each(function(i,e){
-        if($(e).hasClass("ac")){
-            $(e).addClass("hd").removeClass("ac");
-        }
-        else if($(e).hasClass("hd")){
-            $(e).addClass("ac").removeClass("hd");    
-        }
-    })
-}
 
 // Return body tag height
 function bodyHeight(){
