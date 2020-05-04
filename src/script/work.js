@@ -132,6 +132,13 @@ $(function () {
             deta_cons = $(".container_work .contents .core .pop_cont .pop_wrap .pop_cons .pop_core");
         deta_cont.addClass("ac");
         deta_cons.attr("src","./img/weblist/detail/in_" + midIndex + ".jpg");
+
+        // Resize scrollbar, It makes status to active about scrollbar
+        window.setTimeout(function(){
+            console.log("test");
+            story_container.scrollbar("resize");
+            story_container.scrollbar("scroll",0,0);
+        },10);
     })
 
     deta_xbtn.click(function(){

@@ -33,13 +33,15 @@ $(function(){
     let side_menu_li = $(".main_menu_container .main_menu_contents .main_menu_wrapper .side_pop_menu .side_pop_set > li");
 
     side_menu_li.click(function(){
+        console.log("test");
         if($(this).hasClass("active") == false){
             side_menu_li.children(".side_dept2_set").slideUp("slow");
             $(this).children(".side_dept2_set").slideDown("slow");
             side_menu_li.removeClass("active");
             $(this).addClass("active");
         }else{
-            
+            side_menu_li.children(".side_dept2_set").slideUp("slow");
+            side_menu_li.removeClass("active");
         }
     })
 })
