@@ -50,17 +50,28 @@ span{font-family: 'Noto Sans KR', sans-serif;}
 .main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap{position: absolute; transition: all .5s;}
 .main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp0{width: 900px; height: 600px; top: 72px; left : -280px; opacity: 0; z-index: -5;}
 .main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1{width: 768px; height: 512px; top: 0; left : 0; opacity: 1; z-index: 0;}
-.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1::after,
-.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1::before{content: ""; display: block; position: absolute; color: #000; z-index: 10;  opacity: .6;}
-.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1::after,
-.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1::after{right: 0; top: 0; border-top: 35px solid #fff; border-bottom: 35px solid transparent; 
+.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1 .top,
+.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1 .bot{display: block; position: absolute; color: #000; z-index: 10;}
+.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1 .top{right: 0; top: 0; border-top: 35px solid #fff; border-bottom: 35px solid transparent; 
      border-right: 35px solid #fff; border-left: 35px solid  transparent;}
-.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1::before{left: 0; bottom: 0; border-top: 35px solid transparent; border-bottom: 35px solid #fff;
+.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1 .bot{left: 0; bottom: 0; border-top: 35px solid transparent; border-bottom: 35px solid #fff;
      border-right: 35px solid transparent; border-left: 35px solid  #fff;}
-.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1 .img_int::before,
-.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1 .img_int::after{display: block; position: absolute; color: #fff; opacity: .7; font-size: 1.5rem; font-weight: 600;}
-.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1 .img_int::before{content: "NEXT"; right : 11px; top : 34px; transform: rotate(45deg); letter-spacing: 4px;}
-.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1 .img_int::after{content: "PREV"; left: 11px; bottom: 34px; transform: rotate(-135deg); letter-spacing: 4px;}
+
+
+.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1.ty0 .top,
+.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1.ty1 .top{border-right-color: #292929; border-top-color: #292929;}
+.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1.ty0 .bot,
+.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1.ty1 .bot{border-left-color: #292929; border-bottom-color: #292929;}
+.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1.ty0 .top::before,
+.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1.ty0 .bot::after,
+.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1.ty1 .top::before,
+.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1.ty1 .bot::after{color: #292929;}
+
+.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1 .top::before,
+.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1 .bot::after{display: block; position: absolute; font-size: 1.3rem; font-weight: 600; color: #fff;}
+.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1 .top::before{content: "NEXT"; right : -13px; top : 3px; transform: rotate(45deg); letter-spacing: 4px;}
+.main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp1 .bot::after{content: "PREV"; left: -13px; bottom: 3px; transform: rotate(-135deg); letter-spacing: 4px;}
+
 .main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp2{width: 442px; height: 295px; top: -72px; left: 524px; opacity: .5; z-index: -5;}
 .main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.dp3{width: 340px; height: 227px; top: -130px; left: 700px; opacity: 0; z-index: -10;}
 .main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.ty0 .img_int{background: url("../img/main_bg_ty4.png") no-repeat 0 0; background-size: contain;}
@@ -69,7 +80,7 @@ span{font-family: 'Noto Sans KR', sans-serif;}
 .main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap.ty3 .img_int{background: url("../img/main_bg_ty3.png") no-repeat 0 0; background-size: contain;}
 .main_cont .main_wrap .int_cont .int_wrap > a > .img_wrap .img_int{height: 100%;}
 .main_cont .main_wrap .int_cont .int_wrap > a > .txt_wrap{position: absolute; width: 770px; top: 512px;}
-.main_cont .main_wrap .int_cont .int_wrap > a > .txt_wrap .txt_tit{display: block; color : #292929; font-size: 1.5rem; font-weight: 600; padding: 17px 0; text-align: center;}
+.main_cont .main_wrap .int_cont .int_wrap > a > .txt_wrap .txt_tit{display: block; height: 33px; margin: auto; position: absolute; right: 0; left: 0; top: 20px;}
 .main_cont .main_wrap .int_cont .int_wrap > a > .txt_wrap .txt_tit.on{animation: mtxt_ani 1s;}
 @keyframes mtxt_ani{0%{transform: translateX(120px); opacity: 0;} 60%{transform: translateX(-5px);} 100%{transform: translateX(0); opacity: 1;}}
 
@@ -179,6 +190,6 @@ span{font-family: 'Noto Sans KR', sans-serif;}
 .main_cont .main_wrap .soc_pri_cont .soc_pri_wrap .soc_cont > a > .soc_txt > h1{color: #292929; letter-spacing: -2px; padding-bottom: 10px; font-weight: 600;}
 .main_cont .main_wrap .soc_pri_cont .soc_pri_wrap .soc_cont > a > .soc_txt > span{color: #8e8e8e; display: block; line-height: 27px; font-weight: 400;}
 .main_cont .main_wrap .soc_pri_cont .soc_pri_wrap .pri_cont{position: relative; padding: 78px 0 0 605px;}
-.main_cont .main_wrap .soc_pri_cont .soc_pri_wrap .pri_cont > a::before{content: ""; display: block; position: absolute; width: 34px; height: 40px;
-      background: url("../img/pri_icon.png") no-repeat 0 0; background-size: cover; right: 305px; bottom: -1px;}
-.main_cont .main_wrap .soc_pri_cont .soc_pri_wrap .pri_cont > a > .pri_txt{color: #292929; font-weight: 600;}
+.main_cont .main_wrap .soc_pri_cont .soc_pri_wrap .pri_cont > a::before{content: ""; display: block; position: absolute; width: 29px; height: 34px;
+      background: url("../img/pri_icon.png") no-repeat 0 0; background-size: cover; right: 305px; bottom: 2px;}
+.main_cont .main_wrap .soc_pri_cont .soc_pri_wrap .pri_cont > a > .pri_txt{color: #292929; font-weight: 600; font-size: 0.9rem;}

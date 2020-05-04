@@ -40,8 +40,7 @@ function mclc(index,ele,dir,amount){
         let ty_order = class_txt.indexOf("ty");
         ty_order = class_txt.substr(ty_order+2,1);
 
-        let mtxt = obj.main_txt["page" + ty_order];
-        mtag.html(mtxt);
+        mtag.attr("src","./img/txt_page" + ty_order + ".png");
     }
 
     // animation reset
